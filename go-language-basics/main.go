@@ -56,7 +56,7 @@ func loops() {
 		fmt.Println(i)
 	}
 
-	// making variable accesible outside loop
+	// making i accesible outside loop
 	var i int
 	for ;i < 5; i++ {
 		fmt.Println(i)
@@ -129,7 +129,7 @@ func conditionals() {
 		fmt.Println("x is unknown")
 	}
 
-// switch with init statement
+    // switch declaration + match value
 	// switch x:= someFunction(); x {
 	// case "none":
 	// 	fmt.Println("yes")
@@ -137,8 +137,8 @@ func conditionals() {
 	// 	fmt.Println("not yes")
 	// }
 	
-	switch {
-	case x > 0: // boolean evaluations only works if don't use match after switch
+	switch { // <-- match value not included
+	case x > 0: 
 		fmt.Println("x is greater than 0")
 	case x < 0:
 		fmt.Println("x is less than 0")
@@ -156,11 +156,12 @@ func add(x, y int) int {
 
 // functions with multiple return
 
-// multiple return must be placed between ()
+// same type params = only one type declaration
 func divide(num, div int) (res, rem int) {
-	// res and rem don't use := because they are always created
+	// res and rem don't use :=
 	res = num / div
 	rem = num % div
+	// multiple return
 	return res, rem
 }
 
@@ -183,8 +184,79 @@ func sum2(numbers ...int) int {
 }
 
 // Public and Private
-aPrivateVariable := "hola" // lowerCase start letter
-APublicVariable := "" // UpperCase start letter
+var aPrivateVariable = "hola" // Private: lowerCase start letter
+var APublicVariable = "" // Public: UpperCase start letter
+
+func arrays() {
+	// arrays are length fixed
+	
+	// 3 integers length array
+	anArray := [3]int{1,2,3}
+	fmt.Println(anArray)
+
+	// accessing/modifiying arrays
+	anArray[2] = 5
+	fmt.Println(anArray[1])
+
+}
+
+// Arrays passed in function are copies
+func changeValueAtZeroIndex(array [2]int) {
+	array[0] = 3
+	fmt.Println("inside: ", array[0]) // Will print 3
+}
+
+func slices() {
+	// like arrays but not statically sized
+	aSlice := []int{1,2,3,4}
+	
+	// accessing/modifiying slices
+	aSlice[1] = 3
+	fmt.Println(aSlice)
+
+	// add elements to slice
+	aSlice = append(aSlice, 15, 16)
+	fmt.Println(aSlice)
+
+	// slicing slices:
+	// slice[inclusive index : exclusive index]
+	aNewSlice := aSlice[2:4]
+	fmt.Println(aNewSlice)
+
+	// slice are views: sliced slices change original slices
+	aNewSlice = append(aNewSlice, 123)
+	fmt.Println(aNewSlice)
+	fmt.Println(aSlice)
+
+	// slice iteration
+	iterableSlice := []string{"first", "second", "third", "fourth"}
+
+	// get indices and values of slice with range
+	// _ for omiting one return of range
+	for _, value := range iterableSlice {
+		fmt.Println(value)
+	}
+}
+
+func maps() {
+	// maps: key, value structure
+	// declarations of maps
+	
+	// with "make(map[key type]value type, size)"
+	// size can be omited
+	aMap := make(map[string]int,2)
+	aMap["number"] = 1
+	aMap["age"] = 20
+	fmt.Println(aMap)
+
+	// direct assignation
+	otherMap := map[string]string {
+		"name": "Jesus",
+		"age": "2023",
+	}
+	fmt.Println(otherMap)
+}
+
 
 func main() {
 	packages()
@@ -216,4 +288,16 @@ func main() {
 	} ("hola", "mundo")
 
 	fmt.Println(anotherGreet)
+	
+	fmt.Println(aPrivateVariable)
+
+	arrays()
+
+	// using arrays in functions make copies
+	arr := [2]int{}
+	changeValueAtZeroIndex(arr)
+	fmt.Println(arr)
+
+	slices()
+	maps()
 }
