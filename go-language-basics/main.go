@@ -184,7 +184,7 @@ func sum2(numbers ...int) int {
 }
 
 // Public and Private
-var aPrivateVariable = "hola" // Private: lowerCase start letter
+var aPrivateVariable = "" // Private: lowerCase start letter
 var APublicVariable = "" // Public: UpperCase start letter
 
 func arrays() {
