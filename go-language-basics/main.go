@@ -257,6 +257,30 @@ func maps() {
 	fmt.Println(otherMap)
 }
 
+func pointers() {
+	// get memory address with &
+	x := 10
+	fmt.Printf("x address = %p\n", &x)
+
+	// declaring a pointer variable
+	var xPointer *int
+	xPointer = &x
+	fmt.Printf("x address = %p\n", xPointer)
+
+	// modifying value
+	fmt.Println(x)            // 10
+	fmt.Println(*xPointer)    // 10 (dereferencing the pointer)
+	*xPointer = 5             // Modifying the value via the pointer
+	fmt.Println(x)            // 5 (the original variable's value is changed)
+
+	// Note:
+	// Functions by dafault make copies of arguments.
+	// They don't affect original variables.
+}
+
+func changeValue(x string) {
+	x += "different text"
+}
 
 func main() {
 	packages()
@@ -300,4 +324,5 @@ func main() {
 
 	slices()
 	maps()
+	pointers()
 }
