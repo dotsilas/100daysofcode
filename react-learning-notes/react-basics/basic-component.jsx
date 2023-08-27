@@ -7,6 +7,7 @@ import { OtherComponent } from 'directory/OtherComponent';
 export default function MyBasicComponent(props) {
   console.log(props.name);
   console.log(props.age);
+  console.log(`my name is ${props.age}`)
 
   return (    // allows multi-line
     <>        {/* div alternative 'cause all elements need a top-container*/}

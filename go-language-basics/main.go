@@ -32,10 +32,10 @@ func variables() {
 
 func dataTypes() {
 	var (
-		integer int = 10
-		float float64 = 10.23
-		aString string = "a text stored in a variable"
-		isVariable bool = true
+		integer    int     = 10
+		float      float64 = 10.23
+		aString    string  = "a text stored in a variable"
+		isVariable bool    = true
 	)
 
 	var integerNotDefined int // zero "0" by dafault
@@ -50,7 +50,7 @@ func dataTypes() {
 
 func loops() {
 	// go only has for loops
-	
+
 	// classic C-style for
 	for i := 0; i < 5; i++ {
 		fmt.Println(i)
@@ -58,7 +58,7 @@ func loops() {
 
 	// making i accesible outside loop
 	var i int
-	for ;i < 5; i++ {
+	for ; i < 5; i++ {
 		fmt.Println(i)
 	}
 	fmt.Println("i's value is ", i)
@@ -74,10 +74,10 @@ func loops() {
 	// for {
 	// 	fmt.Println("hello!")
 	// }
-	
+
 	// use of break and continue
 	for i := 0; i < 10; i++ {
-		if i % 2 == 0 {
+		if i%2 == 0 {
 			continue
 		}
 		fmt.Println(i)
@@ -95,7 +95,7 @@ func conditionals() {
 	// if err := someFunction(); err != nil {
 	// 	fmt.Print(err)
 	// }
-	
+
 	if true {
 		fmt.Println("Is true")
 	} else {
@@ -109,7 +109,7 @@ func conditionals() {
 	// }
 	// fmt.Println(v)
 	// return nil
-	
+
 	// else if
 	if x > 0 {
 		fmt.Println("x is greater than 0")
@@ -129,16 +129,16 @@ func conditionals() {
 		fmt.Println("x is unknown")
 	}
 
-    // switch declaration + match value
+	// switch declaration + match value
 	// switch x:= someFunction(); x {
 	// case "none":
 	// 	fmt.Println("yes")
 	// case "yes":
 	// 	fmt.Println("not yes")
 	// }
-	
+
 	switch { // <-- match value not included
-	case x > 0: 
+	case x > 0:
 		fmt.Println("x is greater than 0")
 	case x < 0:
 		fmt.Println("x is less than 0")
@@ -185,13 +185,13 @@ func sum2(numbers ...int) int {
 
 // Public and Private
 var aPrivateVariable = "" // Private: lowerCase start letter
-var APublicVariable = "" // Public: UpperCase start letter
+var APublicVariable = ""  // Public: UpperCase start letter
 
 func arrays() {
 	// arrays are length fixed
-	
+
 	// 3 integers length array
-	anArray := [3]int{1,2,3}
+	anArray := [3]int{1, 2, 3}
 	fmt.Println(anArray)
 
 	// accessing/modifiying arrays
@@ -208,8 +208,8 @@ func changeValueAtZeroIndex(array [2]int) {
 
 func slices() {
 	// like arrays but not statically sized
-	aSlice := []int{1,2,3,4}
-	
+	aSlice := []int{1, 2, 3, 4}
+
 	// accessing/modifiying slices
 	aSlice[1] = 3
 	fmt.Println(aSlice)
@@ -241,18 +241,18 @@ func slices() {
 func maps() {
 	// maps: key, value structure
 	// declarations of maps
-	
+
 	// with "make(map[key type]value type, size)"
 	// size can be omited
-	aMap := make(map[string]int,2)
+	aMap := make(map[string]int, 2)
 	aMap["number"] = 1
 	aMap["age"] = 20
 	fmt.Println(aMap)
 
 	// direct assignation
-	otherMap := map[string]string {
+	otherMap := map[string]string{
 		"name": "Jesus",
-		"age": "2023",
+		"age":  "2023",
 	}
 	fmt.Println(otherMap)
 }
@@ -268,10 +268,10 @@ func pointers() {
 	fmt.Printf("x address = %p\n", xPointer)
 
 	// modifying value
-	fmt.Println(x)            // 10
-	fmt.Println(*xPointer)    // 10 (dereferencing the pointer)
-	*xPointer = 5             // Modifying the value via the pointer
-	fmt.Println(x)            // 5 (the original variable's value is changed)
+	fmt.Println(x)         // 10
+	fmt.Println(*xPointer) // 10 (dereferencing the pointer)
+	*xPointer = 5          // Modifying the value via the pointer
+	fmt.Println(x)         // 5 (the original variable's value is changed)
 
 	// Note:
 	// Functions by dafault make copies of arguments.
@@ -282,6 +282,43 @@ func changeValue(x string) {
 	x += "different text"
 }
 
+func myStructs() {
+	// structs == collection of variables
+	var record = struct {
+		name string
+		age  int
+	}{
+		name: "Jesus",
+		age:  2023,
+	}
+	fmt.Printf("Name: %s; Age: %d\n", record.name, record.age)
+
+	// custom types
+	type CarModel string
+	var myCar CarModel = "Mustang"
+	var myOtherCar = CarModel("Toyota") // by type conversion
+	fmt.Println(myCar, " ", myOtherCar)
+
+
+	jesus := Record{Name: "Jesus", Age: 2023}
+	// fmt.Printf("Name: %s; Age: %d\n", jesus.Name, jesus.Age)
+
+	fmt.Println(jesus.String())
+}
+
+
+// custom struct types
+type Record struct {
+	Name string
+	Age int
+}
+
+// methods == functions attached to a data type
+// behaviour of a struct
+func (r Record) String() string {
+	return fmt.Sprintf("%s,%d", r.Name, r.Age)
+}
+
 func main() {
 	packages()
 	variables()
@@ -289,14 +326,14 @@ func main() {
 	loops()
 	conditionals()
 
-	result := add(10,20)
+	result := add(10, 20)
 	fmt.Printf("10 + 20 = %d\n", result)
 
 	// if you only wants one return, can use _ to not used
-	result, remainder := divide(10,3)
+	result, remainder := divide(10, 3)
 	fmt.Printf("10 / 3 = %d and remainder %d\n", result, remainder)
 
-	sum2Result := sum2(1,2,3,4,5)
+	sum2Result := sum2(1, 2, 3, 4, 5)
 	fmt.Println(sum2Result)
 
 	// anonimous function
@@ -309,10 +346,10 @@ func main() {
 	// create a single-use function and pass arguments
 	anotherGreet := func(word1, word2 string) string {
 		return word1 + " " + word2
-	} ("hola", "mundo")
+	}("hola", "mundo")
 
 	fmt.Println(anotherGreet)
-	
+
 	fmt.Println(aPrivateVariable)
 
 	arrays()
@@ -325,4 +362,5 @@ func main() {
 	slices()
 	maps()
 	pointers()
+	myStructs()
 }
