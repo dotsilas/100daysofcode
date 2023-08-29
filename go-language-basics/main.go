@@ -299,18 +299,16 @@ func myStructs() {
 	var myOtherCar = CarModel("Toyota") // by type conversion
 	fmt.Println(myCar, " ", myOtherCar)
 
-
 	jesus := Record{Name: "Jesus", Age: 2023}
 	// fmt.Printf("Name: %s; Age: %d\n", jesus.Name, jesus.Age)
 
 	fmt.Println(jesus.String())
 }
 
-
 // custom struct types
 type Record struct {
 	Name string
-	Age int
+	Age  int
 }
 
 // methods == functions attached to a data type
@@ -319,12 +317,75 @@ func (r Record) String() string {
 	return fmt.Sprintf("%s,%d", r.Name, r.Age)
 }
 
+// Constructor methods
+func NewRecord(name string, age int) (*Record, error) {
+	if name == "" {
+		fmt.Println("name cannot be empty string")
+	}
+	if age <= 0 {
+		fmt.Println("age cannot be <= 0")
+	}
+	return &Record{Name: name, Age: age}, nil
+}
+
+// // Interfaces
+// // stores any value that declares a set of methods
+// type Stringer interface {
+// 	String() string
+// }
+
+// type Person struct {
+// 	first, last string
+// }
+
+// func (p Person) String() string {
+// 	return fmt.Sprintf("%s, %s", p.last, p.first)
+// }
+
+// type StrList []string
+
+// func (s StrList) String() string {
+// 	return strings.Join(s, ",")
+// }
+
+// interface declaration
+type Writer interface {
+	// abstract method:
+	// declared but not implemented
+	Write() string
+}
+
+// first type
+type Novelist struct {
+	name, message string
+}
+
+// second type
+type Programmer struct {
+	name, message string
+}
+
+// Novelist implementation of Writter interface
+func (n Novelist) Write() string {
+	return n.message
+}
+
+
+// Programmer implementation of Writter interface
+func (p Programmer) Write() string {
+	return p.message
+}
+
+// Novelist and Programmer implements
+// all methods of Writer (Write), so:
+// Novelist and Programmer satisfy Writter
+
 func main() {
-	packages()
-	variables()
-	dataTypes()
-	loops()
-	conditionals()
+	// packages()
+	// variables()
+	// dataTypes()
+	// loops()
+	// conditionals()
 
 	result := add(10, 20)
 	fmt.Printf("10 + 20 = %d\n", result)
@@ -359,8 +420,8 @@ func main() {
 	changeValueAtZeroIndex(arr)
 	fmt.Println(arr)
 
-	slices()
-	maps()
-	pointers()
-	myStructs()
+	// slices()
+	// maps()
+	// pointers()
+	// myStructs()
 }
