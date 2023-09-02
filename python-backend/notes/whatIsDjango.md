@@ -69,6 +69,7 @@
     - the site provides the necessary commands
     - install de adapter for postgres to django psycopg
 - creating the database
+    - 
 
 ## What is Django
 - Most famous backend fw in python

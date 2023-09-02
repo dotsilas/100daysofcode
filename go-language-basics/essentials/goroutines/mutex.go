@@ -11,7 +11,9 @@ type sum struct {
 }
 
 func (s *sum) Get() int {
+	// locks method at the start
 	s.mu.Lock()
+	// unlock at the end, (defer executes at the end)
 	defer s.mu.Unlock()
 	return s.sum
 }

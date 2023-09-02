@@ -19,7 +19,7 @@ func main() {
 			fmt.Println(i)
 		}(i) // passing i to func
 	}
-
+ e
 	fmt.Println("hello")
 	// Wait for all goroutines to finish before proceeding
 	wg.Wait()
