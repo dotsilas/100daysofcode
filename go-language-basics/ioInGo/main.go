@@ -11,24 +11,29 @@ func main() {
 
 	data, err := ReadFile(myReadingPath)
 	if err != nil {
-		fmt.Printf("Error while reading file: %s", err)
-	} else {
-		WriteAFile(myWritingPath,data)
-		fmt.Print("Complete succesful")
+		fmt.Printf("Error reading the file: %s", err)
+		return
 	}
+
+	if  err := WriteAFile(myWritingPath,data); err != nil {
+		fmt.Printf("Error writing the file: %s", err)
+		return
+	}
+
+	fmt.Print("Operation completed successfully")
 }
 
 // Read a file
-// returns data []byte, error
 func ReadFile(path string) ([]byte, error) {
+	// receives a string
+	// returns data []byte, error
 	data, err := os.ReadFile(path)
 	return data, err
 }
 
-// Read a file
-// returns data []byte, error
+// Write a file
 func WriteAFile(path string, data []byte) error {
-	// WRITING A FILE
+	// returns error if not succed
 	if err := os.WriteFile(path, data, 0644); err != nil {
 		return err
 	}
