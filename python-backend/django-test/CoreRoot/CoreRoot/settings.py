@@ -76,11 +76,11 @@ WSGI_APPLICATION = 'CoreRoot.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'coredb',
-        'USER':'core',
-            'PASSWORD': 'pass',
+        'NAME': 'basicdb',
+        'USER':'basic',
+        'PASSWORD': 'pass',
         'HOST': 'localhost',
-        'PORT': '5342',
+        'PORT': '5432',
     }
 }
 
