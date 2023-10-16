@@ -7,7 +7,9 @@ I'm Learning:
     - TypeScript
     - Python
     - Go
-- Frameworks
-    - React
-    - Django
+    - C#
+    - Zig
+- Frameworks and libraries
+    - Svelte
     - FastAPI
+    - ASP.NET
