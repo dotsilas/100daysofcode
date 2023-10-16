@@ -370,7 +370,6 @@ func (n Novelist) Write() string {
 	return n.message
 }
 
-
 // Programmer implementation of Writter interface
 func (p Programmer) Write() string {
 	return p.message
