@@ -130,7 +130,7 @@ func main() {
 	fmt.Printf("Integer: %#v\n", 50)
 
 	// ***** nil == not having a value
-	
+
 	// pointers
 	pointers()
 
@@ -141,11 +141,36 @@ func main() {
 	add5reference(&count)
 	fmt.Printf("add 5 by reference post: %d\n", count)
 
-	// structs
-	// custom structs
+	// enums without iota
+	const (
+		a_option = 0
+		b_option = 1
+		c_option = 2
+		d_option = 3
+	)
+
+	// enums with iota, the same result as previos enum
+	const (
+		a_option_iota = iota
+		b_option_iota
+		c_option_iota
+		d_option_iota
+	)
+
+	// Scope
+	// 0. package level
+	// 1. {} level
+
+	// type conversion
+	var aPointNumber float32
+	aPointNumber = 3.1416
+	// conversion of float32 to int
+	fmt.Printf("float %f to int == %d\n", aPointNumber, int(aPointNumber))
+
 	// methods
 	// constructor method
-	// interfaces
+	// errors
+	// polymorphism
 	// goroutines
 	// testing
 	// io
@@ -208,6 +233,7 @@ func pointers() {
 	fmt.Printf("count2: %#v\n", count2)
 
 	// dereferencing a nil pointer cause bugs, so it's good practice verifi if its nil
+	// before interact with any possible nil value is necessary confirm that isn't nil
 	if count3 != nil {
 		fmt.Printf("count3: %#v\n", count3)
 	}
@@ -224,3 +250,54 @@ func add5reference(count *int) {
 	*count += 5
 	fmt.Printf("Add 5 by reference: %d\n", *count)
 }
+
+// custom types
+type id string
+
+// structs
+// notation for structs:type <name> struct { field type field type }
+type user struct {
+	name   string
+	age    int
+	weigth float32
+	member bool
+}
+
+// embedding structs, something like initherance (es: typos incrustados)
+type name string
+type point struct {
+	x int
+	y int
+}
+type size struct {
+	heigth float32
+	weigth float32
+}
+
+// this struct embedds all types defined before
+type dot struct {
+	name
+	point
+	size
+}
+
+// interfaces: defines behaviour (method or set of methods) without the details (without implementation)
+// defining interfaces: type <behaviour_name>er interface { methods_signature param & return types }
+type Speaker interface {
+	Speak() string
+}
+
+// defining parameters and returns
+type Reader interface {
+	Read(data []byte) (msg string, err error)
+}
+
+type cat struct {
+}
+// now, cat implements Speak() from Speaker interface implicitly, if it satify interface, then implements it
+func (c cat) Speak() string {
+	return "Hello, I'm a cat"
+}
+
+
+
