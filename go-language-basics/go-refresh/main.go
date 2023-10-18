@@ -15,6 +15,7 @@ import (
 8. loops
 9. slices
 10. maps
+
 11. pointers
 12. structs
 13. custom structs
@@ -47,7 +48,7 @@ func main() {
 		aBoolean bool    = true
 	)
 
-	// constants
+	// CONSTANTS
 	// typed
 	const aNumberConstant int = 3
 	// untyped: can be used as types of the same family...
@@ -94,7 +95,7 @@ func main() {
 	first, second := divideWord(word)
 	fmt.Printf("word: %s, start: %s, tail: %s\n", word, first, second)
 
-	summation := sum(1,2,3,4,5,6,7,8,9)
+	summation := sum(1, 2, 3, 4, 5, 6, 7, 8, 9)
 	fmt.Printf("Summatory of '1,2,3,4,5,6,7,8,9' = %d\n", summation)
 
 	// slices
@@ -119,13 +120,27 @@ func main() {
 	fmt.Println("===============")
 
 	// maps
-	myMap := map[string]string {
-		"name":"Jesus",
-		"age":"2023",
+	myMap := map[string]string{
+		"name": "Jesus",
+		"age":  "2023",
 	}
 	fmt.Printf("Name: %s, Age: %s\n", myMap["name"], myMap["age"])
 
+	// Substitutions
+	fmt.Printf("Integer: %#v\n", 50)
+
+	// ***** nil == not having a value
+	
 	// pointers
+	pointers()
+
+	var count int
+	add5value(count)
+	fmt.Printf("add 5 by value post: %d\n", count)
+
+	add5reference(&count)
+	fmt.Printf("add 5 by reference post: %d\n", count)
+
 	// structs
 	// custom structs
 	// methods
@@ -136,9 +151,9 @@ func main() {
 	// io
 }
 
-// public and private data 
+// public and private data
 var aPrivateData = "" // starts with lowercase
-var APrivateData = "" // starts with uppercase 
+var APrivateData = "" // starts with uppercase
 
 // functions
 func calc(firstNumber, secondNumber int, operator string) int {
@@ -176,4 +191,36 @@ func sum(numbers ...int) int {
 		sum += n
 	}
 	return sum
+}
+
+// pointers
+// by default: args are passed as values in functions
+func pointers() {
+	// pointer nil
+	var count1 *int
+	// pointer with ...
+	count2 := new(int)
+	// temporary var
+	countTemp := 5
+	// pointer to a variable (countTemp)
+	count3 := &countTemp
+	fmt.Printf("count1: %#v\n", count1)
+	fmt.Printf("count2: %#v\n", count2)
+
+	// dereferencing a nil pointer cause bugs, so it's good practice verifi if its nil
+	if count3 != nil {
+		fmt.Printf("count3: %#v\n", count3)
+	}
+}
+
+// functions without pointers
+func add5value(count int) {
+	count += 5
+	fmt.Printf("Add 5 by value: %d\n", count)
+}
+
+// function with pointers
+func add5reference(count *int) {
+	*count += 5
+	fmt.Printf("Add 5 by reference: %d\n", *count)
 }
