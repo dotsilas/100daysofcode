@@ -15,10 +15,10 @@ import (
 8. loops
 9. slices
 10. maps
-
 11. pointers
 12. structs
 13. custom structs
+
 14. methods
 15. constructor method
 16. interfaces
