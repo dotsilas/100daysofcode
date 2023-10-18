@@ -1,0 +1,15 @@
+/home/sduarte/100dayof/csharp-language/DecisionLogic/bin/Debug/net6.0/DecisionLogic
+/home/sduarte/100dayof/csharp-language/DecisionLogic/bin/Debug/net6.0/DecisionLogic.deps.json
+/home/sduarte/100dayof/csharp-language/DecisionLogic/bin/Debug/net6.0/DecisionLogic.runtimeconfig.json
+/home/sduarte/100dayof/csharp-language/DecisionLogic/bin/Debug/net6.0/DecisionLogic.dll
+/home/sduarte/100dayof/csharp-language/DecisionLogic/bin/Debug/net6.0/ref/DecisionLogic.dll
+/home/sduarte/100dayof/csharp-language/DecisionLogic/bin/Debug/net6.0/DecisionLogic.pdb
+/home/sduarte/100dayof/csharp-language/DecisionLogic/obj/Debug/net6.0/DecisionLogic.csproj.AssemblyReference.cache
+/home/sduarte/100dayof/csharp-language/DecisionLogic/obj/Debug/net6.0/DecisionLogic.GeneratedMSBuildEditorConfig.editorconfig
+/home/sduarte/100dayof/csharp-language/DecisionLogic/obj/Debug/net6.0/DecisionLogic.AssemblyInfoInputs.cache
+/home/sduarte/100dayof/csharp-language/DecisionLogic/obj/Debug/net6.0/DecisionLogic.AssemblyInfo.cs
+/home/sduarte/100dayof/csharp-language/DecisionLogic/obj/Debug/net6.0/DecisionLogic.csproj.CoreCompileInputs.cache
+/home/sduarte/100dayof/csharp-language/DecisionLogic/obj/Debug/net6.0/DecisionLogic.dll
+/home/sduarte/100dayof/csharp-language/DecisionLogic/obj/Debug/net6.0/ref/DecisionLogic.dll
+/home/sduarte/100dayof/csharp-language/DecisionLogic/obj/Debug/net6.0/DecisionLogic.pdb
+/home/sduarte/100dayof/csharp-language/DecisionLogic/obj/Debug/net6.0/DecisionLogic.genruntimeconfig.cache
