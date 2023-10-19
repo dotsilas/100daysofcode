@@ -1,5 +1,5 @@
 from enum import Enum
-from fastapi import Body, FastAPI, File, Form, Path, UploadFile
+from fastapi import Body, FastAPI, File, Form, Header, Path, UploadFile, status
 from pydantic import BaseModel
 
 app = FastAPI()
@@ -23,10 +23,7 @@ class userType(str, Enum):
 @app.get("/user/{type}/{id}")
 # use a defined enumerate class that implements Enum class as parameter type
 def get_user_with_type(type: userType, id: int):
-    return {
-            "usertype": f"{type}",
-            "user_id": f"{id}"
-            }
+    return { "usertype": f"{type}", "user_id": f"{id}" }
 
 # Advanced validation with Path function from fastapi
 @app.get("/users/{id}")
@@ -88,12 +85,40 @@ def upload_file(file: bytes = File(...)):
 def upload_big_file(files: list[UploadFile] = File(...)):
     return [{"file_name": file.filename, "content_type": file.content_type} for file in files]
 
-## CONTINUE...
 # headers
+@app.get("/header/")
+def get_header(hello: str = Header(...)):
+    return {"hello": hello}
+
 # cookies
-# request object
-# path operation parameters
+
+# MODIFY RESPONSE
+
+class Movie(BaseModel):
+    title: str
+    release_year: int
+    director: str
+
+# Toy DB
+movies = {
+        1: Movie(title="Hello", release_year=1999, director="Alpacino")
+}
+
+# status code, like: 200 201 400, etc
+@app.get("/movies", status_code=status.HTTP_201_CREATED)
+def create_post(movie: Movie):
+    return movie 
+
 # response parameter
+# If you want to create special responses you can define other Model
+class MovieName(BaseModel):
+    title: str
+
+# and use response_model parameter to define responde_model
+@app.get("/movies/{id}", response_model=MovieName)
+def get_movie_name(id: int):
+    return movies[id]
+
 # raising http errors
 # custom response
 # structuring a project

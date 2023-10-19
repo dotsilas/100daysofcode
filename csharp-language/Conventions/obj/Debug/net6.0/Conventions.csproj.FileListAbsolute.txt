@@ -1,0 +1,15 @@
+/home/sduarte/100dayof/csharp-language/Conventions/bin/Debug/net6.0/Conventions
+/home/sduarte/100dayof/csharp-language/Conventions/bin/Debug/net6.0/Conventions.deps.json
+/home/sduarte/100dayof/csharp-language/Conventions/bin/Debug/net6.0/Conventions.runtimeconfig.json
+/home/sduarte/100dayof/csharp-language/Conventions/bin/Debug/net6.0/Conventions.dll
+/home/sduarte/100dayof/csharp-language/Conventions/bin/Debug/net6.0/ref/Conventions.dll
+/home/sduarte/100dayof/csharp-language/Conventions/bin/Debug/net6.0/Conventions.pdb
+/home/sduarte/100dayof/csharp-language/Conventions/obj/Debug/net6.0/Conventions.csproj.AssemblyReference.cache
+/home/sduarte/100dayof/csharp-language/Conventions/obj/Debug/net6.0/Conventions.GeneratedMSBuildEditorConfig.editorconfig
+/home/sduarte/100dayof/csharp-language/Conventions/obj/Debug/net6.0/Conventions.AssemblyInfoInputs.cache
+/home/sduarte/100dayof/csharp-language/Conventions/obj/Debug/net6.0/Conventions.AssemblyInfo.cs
+/home/sduarte/100dayof/csharp-language/Conventions/obj/Debug/net6.0/Conventions.csproj.CoreCompileInputs.cache
+/home/sduarte/100dayof/csharp-language/Conventions/obj/Debug/net6.0/Conventions.dll
+/home/sduarte/100dayof/csharp-language/Conventions/obj/Debug/net6.0/ref/Conventions.dll
+/home/sduarte/100dayof/csharp-language/Conventions/obj/Debug/net6.0/Conventions.pdb
+/home/sduarte/100dayof/csharp-language/Conventions/obj/Debug/net6.0/Conventions.genruntimeconfig.cache

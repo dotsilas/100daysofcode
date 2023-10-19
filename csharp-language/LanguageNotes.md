@@ -58,4 +58,13 @@ Console.WriteLine(false);
    - increment before and after value
       - Console.WriteLine(++value); // prints value + 1
       - Console.WriteLine(value++); // prints value and adds + 1 to value
+- For... // TO-DO: tengo que aprender diferencia entre for y foreach, cuando es mejor cada uno
+   - foreach don't allow to change the value of the iterable variable
+   - classical for, allows to change the value of the iterable variable
+   - break breaks iteration
+- Read from console
+   - Console.ReadLine();
+- Nullable values
+   - int userNumber; // automatically assign '0' as default value
+   - int? userNumber; // assign null as predetermined value, so is null until initialization
 - 

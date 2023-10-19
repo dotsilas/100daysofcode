@@ -1,0 +1,15 @@
+/home/sduarte/100dayof/csharp-language/ArraysLesson/obj/Debug/net6.0/ArraysLesson.csproj.AssemblyReference.cache
+/home/sduarte/100dayof/csharp-language/ArraysLesson/obj/Debug/net6.0/ArraysLesson.GeneratedMSBuildEditorConfig.editorconfig
+/home/sduarte/100dayof/csharp-language/ArraysLesson/obj/Debug/net6.0/ArraysLesson.AssemblyInfoInputs.cache
+/home/sduarte/100dayof/csharp-language/ArraysLesson/obj/Debug/net6.0/ArraysLesson.AssemblyInfo.cs
+/home/sduarte/100dayof/csharp-language/ArraysLesson/obj/Debug/net6.0/ArraysLesson.csproj.CoreCompileInputs.cache
+/home/sduarte/100dayof/csharp-language/ArraysLesson/bin/Debug/net6.0/ArraysLesson
+/home/sduarte/100dayof/csharp-language/ArraysLesson/bin/Debug/net6.0/ArraysLesson.deps.json
+/home/sduarte/100dayof/csharp-language/ArraysLesson/bin/Debug/net6.0/ArraysLesson.runtimeconfig.json
+/home/sduarte/100dayof/csharp-language/ArraysLesson/bin/Debug/net6.0/ArraysLesson.dll
+/home/sduarte/100dayof/csharp-language/ArraysLesson/bin/Debug/net6.0/ref/ArraysLesson.dll
+/home/sduarte/100dayof/csharp-language/ArraysLesson/bin/Debug/net6.0/ArraysLesson.pdb
+/home/sduarte/100dayof/csharp-language/ArraysLesson/obj/Debug/net6.0/ArraysLesson.dll
+/home/sduarte/100dayof/csharp-language/ArraysLesson/obj/Debug/net6.0/ref/ArraysLesson.dll
+/home/sduarte/100dayof/csharp-language/ArraysLesson/obj/Debug/net6.0/ArraysLesson.pdb
+/home/sduarte/100dayof/csharp-language/ArraysLesson/obj/Debug/net6.0/ArraysLesson.genruntimeconfig.cache
