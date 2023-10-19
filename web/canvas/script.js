@@ -7,20 +7,20 @@ window.addEventListener("resize", () => {
   canvas.height = window.innerHeight;
 })
 
-const mouse = {
+const mousePosition = {
   x: undefined,
   y: undefined,
 }
 
 canvas.addEventListener("mousemove", (event) => {
-  mouse.x = event.x;
-  mouse.y = event.y;
+  mousePosition.x = event.x;
+  mousePosition.y = event.y;
   drawCircle();
 })
 
 function drawCircle(){
   ctx.fillStyle = "red";
   ctx.beginPath();
-  ctx.arc(mouse.x, mouse.y, 10, 0, Math.PI * 2);
+  ctx.arc(mousePosition.x, mousePosition.y, 3, 0, Math.PI * 2);
   ctx.fill();
 }

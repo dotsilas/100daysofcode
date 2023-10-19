@@ -1,7 +1,9 @@
 package main
 
 import (
+	"errors"
 	"fmt"
+	"log"
 )
 
 /* Parts
@@ -167,10 +169,39 @@ func main() {
 	// conversion of float32 to int
 	fmt.Printf("float %f to int == %d\n", aPointNumber, int(aPointNumber))
 
-	// methods
-	// constructor method
-	// errors
-	// polymorphism
+
+	// anonimous function saved in a variable
+	f := func(msg string) string {
+		return msg + " " + msg + "!"
+	}
+
+	msg := f("hello from anon func")
+	fmt.Println(msg)
+
+	// ERRORS
+	
+	// creating error values
+	// it's idiomatic start with "Err" the custom errors
+	ErrNegativeInteger := errors.New("Invalid number. Only positive number allowed")
+	addSignedInt := func(numbers ...int) (int, error){
+		for _, number := range numbers {
+			if number < 0 {
+				return 0, ErrNegativeInteger
+			}
+		}
+		var result int
+		for _, number := range numbers {
+			result += number
+		}
+		return result, nil
+	}
+
+	sum, err := addSignedInt(1,2,3,-3)
+	if err != nil {
+		log.Fatalf("Error: %v", err)
+	}
+	fmt.Printf("Sum = %d\n", sum)
+
 	// goroutines
 	// testing
 	// io
@@ -292,12 +323,21 @@ type Reader interface {
 	Read(data []byte) (msg string, err error)
 }
 
-type cat struct {
+type Cat struct {
 }
 // now, cat implements Speak() from Speaker interface implicitly, if it satify interface, then implements it
-func (c cat) Speak() string {
+func (c Cat) Speak() string {
 	return "Hello, I'm a cat"
 }
 
+// Struct with a method (func asociated)
+type Car struct {
+	Name  string
+	Year int
+}
 
+func (c Car) sayName() {
+	fmt.Printf("My name is %s\n", c.Name)
+}
 
+// 
