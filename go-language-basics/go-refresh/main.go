@@ -4,30 +4,8 @@ import (
 	"errors"
 	"fmt"
 	"log"
+	"sync"
 )
-
-/* Parts
-1. variables
-2. data types
-3. constants
-4. functions
-5. errors
-6. if statement
-7. switch statement
-8. loops
-9. slices
-10. maps
-11. pointers
-12. structs
-13. custom structs
-
-14. methods
-15. constructor method
-16. interfaces
-17. goroutines
-18. testing
-19. io
-*/
 
 func main() {
 	// variable declaration
@@ -182,7 +160,7 @@ func main() {
 	
 	// creating error values
 	// it's idiomatic start with "Err" the custom errors
-	ErrNegativeInteger := errors.New("Invalid number. Only positive number allowed")
+	ErrNegativeInteger := errors.New("invalid number, only positive number allowed")
 	addSignedInt := func(numbers ...int) (int, error){
 		for _, number := range numbers {
 			if number < 0 {
@@ -202,9 +180,8 @@ func main() {
 	}
 	fmt.Printf("Sum = %d\n", sum)
 
-	// goroutines
-	// testing
-	// io
+	result := ConcurrentFunction()
+	fmt.Printf("Result: %d", result)
 }
 
 // public and private data
@@ -340,4 +317,26 @@ func (c Car) sayName() {
 	fmt.Printf("My name is %s\n", c.Name)
 }
 
-// 
+// Go routines
+
+func ConcurrentFunction() int {
+	var wg sync.WaitGroup
+
+	var numbers []int
+
+	wg.Add(1)
+	for n := 0; n < 10; n++ {
+		go func() {
+			defer wg.Done()
+			difference := 10 - n
+			numbers = append(numbers, difference)
+		}()
+	}
+
+	var result int
+	for _, number := range numbers {
+		result += number
+	}
+	wg.Wait()
+	return result
+}
